@@ -1,6 +1,6 @@
 //TODO:
 //ISSUES: TBD
-
+//import java.util.*;
 public class Sorts {
 
 public static void bubbleSort(int[] data) {
@@ -25,7 +25,7 @@ public static void selectionSort(int[] data) {
 	for (int n = 0; n < data.length; n++) {
 		int least = n;
 		for (int i = n; i < data.length; i++) {
-			if (data[i] < least) {
+			if (data[i] < data[least]) {
 				least = i;
 			}
 		}
