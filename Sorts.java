@@ -1,5 +1,5 @@
 //TODO:
-//ISSUES: Insertion Sort really slow with small N (needs optimization), fix when two numbers are equal
+//ISSUES: TBD
 import java.util.*;
 public class Sorts {
 
@@ -37,15 +37,17 @@ public static void selectionSort(int[] data) {
 }
 
 public static void insertionSort(int[] data) {
-	for (int n = 0; n < data.length; n++) {
-		for (int k = 0; k < n; k++) {
-			if ((k == 0 || data[n] > data[k-1]) && data[n] <= data[k]) {
-				int index = k;
-				int temp = data[n];
-				for (int i = n - 1; i >= index; i--) {
-					data[i+1] = data[i];
+	for (int n = 1; n < data.length; n++) {
+		if (data[n] < data[n-1]) {
+			for (int k = 0; k < n; k++) {
+				if ((k == 0 || data[n] > data[k-1]) && data[n] <= data[k]) {
+					int index = k;
+					int temp = data[n];
+					for (int i = n - 1; i >= index; i--) {
+						data[i+1] = data[i];
+					}
+					data[index] = temp;
 				}
-				data[index] = temp;
 			}
 		}
 	}
