@@ -1,6 +1,6 @@
 //TODO:
-//ISSUES: TBD
-//import java.util.*;
+//ISSUES: Insertion Sort really slow with small N (needs optimization), fix when two numbers are equal
+import java.util.*;
 public class Sorts {
 
 public static void bubbleSort(int[] data) {
@@ -32,6 +32,22 @@ public static void selectionSort(int[] data) {
 		int temp = data[n];
 		data[n] = data[least];
 		data[least] = temp;
+	}
+	return;
+}
+
+public static void insertionSort(int[] data) {
+	for (int n = 0; n < data.length; n++) {
+		for (int k = 0; k < n; k++) {
+			if ((k == 0 || data[n] > data[k-1]) && data[n] <= data[k]) {
+				int index = k;
+				int temp = data[n];
+				for (int i = n - 1; i >= index; i--) {
+					data[i+1] = data[i];
+				}
+				data[index] = temp;
+			}
+		}
 	}
 	return;
 }
